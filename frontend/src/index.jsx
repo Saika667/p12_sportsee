@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import App from './components/app/App'
 import HomePage from './pages/homePage/HomePage'
 import AccountPage from './pages/accountPage/AccountPage'
@@ -10,7 +10,7 @@ import GlobalStyle from './utils/GlobalStyle'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      <HashRouter>
+      <BrowserRouter>
             <App>
                 <GlobalStyle />
 
@@ -22,6 +22,6 @@ createRoot(document.getElementById('root')).render(
                     <Route path="/settings" element={ <SettingsPage /> } />
                 </Routes>
             </App>
-      </HashRouter>
+      </BrowserRouter>
   </StrictMode>,
 )

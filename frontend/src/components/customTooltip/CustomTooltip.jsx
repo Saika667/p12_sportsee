@@ -5,8 +5,8 @@ function CustomTooltip ({ payload }) {
     
     return (
         <Container>
-            <Text>{ payload[0].value}Kcal</Text>
-            <Text>{ payload[1].value}kg</Text>
+            <Text>{ payload[0].value}kg</Text>
+            <Text>{ payload[1].value}Kcal</Text>        
         </Container>
     );
 }

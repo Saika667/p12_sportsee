@@ -44,10 +44,10 @@ export const Button = styled.button`
 
 export const Span = styled.span`
     color: #ffffff;
-    transform: rotate(-90deg);
-    font-size: 0.75rem;
+    transform: translateX(-17%) rotate(-90deg);
+    font-size: 1.1rem;
     position: absolute;
-    bottom: 4rem;
+    bottom: 7rem;
     width: max-content;
     left: 0;
     right: 0;

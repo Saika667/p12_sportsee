@@ -1,65 +1,13 @@
 import styled from "styled-components"
 
-export const Title = styled.h1`
-    font-size: 4rem;
-    font-weight: 500;
-    margin: 0;
-`
-
-export const Name = styled.span`
-    color: #FF0000;
-`
-
-export const CatchPhrase = styled.p`
-    font-size: 1.5rem;
-    margin: 2rem 0 5rem 0;
-`
-
-export const DashboardContainer = styled.div`
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-`
-
-export const GraphicsContainer = styled.div`
-    width: 78%;
-`
-
-export const DailyCountersContainer = styled.div`
-    width: 18%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`
-
-export const Container = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
-`
-
 export const Wrapper = styled.div`
     background-color:#FBFBFB;
     border-radius: 5px;
     padding: 2rem;
     border-radius: 5px;
     box-sizing: border-box;
-    
-    &.diagram {
-        width: 100%;
-        height: 20rem;
-    }
-
-    &.info {
-        display: flex;
-        align-items: center;
-    }
-
-    &.statistic {
-        width: 30%;
-        height: 17rem;
-        padding: 0;
-    }
+    display: flex;
+    align-items: center;
 `
 
 export const IconContainer = styled.div`
