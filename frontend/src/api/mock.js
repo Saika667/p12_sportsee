@@ -8,7 +8,7 @@ export const getUserInformation = async (userId) => {
                     lastName: "Dovineau",
                     age: 31
                 },
-                score: 0.12,
+                score: 0.5,
                 keyData: {
                     calorieCount: 1930,
                     proteinCount: 155,

@@ -2,7 +2,7 @@ import { Page } from "../../utils/Atoms"
 import { CatchPhrase, Container, DailyCountersContainer, DashboardContainer, GraphicsContainer, IconContainer, Informations, Name, Span, Title, Wrapper } from "./HomePageStyle"
 import useDynamicFile from "../../utils/useDynamicFile"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import DailyActivity from "../../components/diagrams/dailyActivity/DailyActivity"
 import AverageSessionDuration from "../../components/diagrams/averageSessionDuration/AverageSessionDuration"
 import Intensity from "../../components/diagrams/intensity/Intensity"
@@ -13,6 +13,7 @@ import Card from "../../components/card/Card"
 
 function HomePage () {
     let { userId } = useParams()
+    const navigate = useNavigate()
     const { api } = useDynamicFile()
     const [ userInformationState, setUserInformationState ] = useState({})
     const [ userActivity, setUserActivity ] = useState({})
@@ -22,20 +23,28 @@ function HomePage () {
 
     useEffect(() => {
         const loadData = async () => {
-            const info = await api?.getUserInformation(userId)
+            try {
+                const info = await api?.getUserInformation(userId)
 
-            if (info) {
-                setUserInformationState(new userInformation(info))
-            }
-
-            const activity = await api?.getUserActivity(userId)
-            setUserActivity(activity)
-            const averageSession = await api?.getUserAverageSessions(userId)
-            setAverageSession(averageSession)
-            const intensityActivities = await api?.getUserPerformance(userId)
-
-            if (intensityActivities) {
-                setPerformance(new userPerformance(intensityActivities.kind, intensityActivities.data))
+                if (info) {
+                    setUserInformationState(new userInformation(info))
+                }
+    
+                const activity = await api?.getUserActivity(userId)
+                setUserActivity(activity)
+                const averageSession = await api?.getUserAverageSessions(userId)
+                setAverageSession(averageSession)
+                const intensityActivities = await api?.getUserPerformance(userId)
+    
+                if (intensityActivities) {
+                    setPerformance(new userPerformance(intensityActivities.kind, intensityActivities.data))
+                }
+            } catch (exception) {
+                if (exception.status === 404) {
+                    navigate('/404')
+                } else if (exception.message.includes('Failed to fetch') || exception.message.includes('ERR_CONNECTION_REFUSED')) {
+                    navigate('/maintenance')
+                }
             }
         }
 

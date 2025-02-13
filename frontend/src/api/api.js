@@ -3,10 +3,9 @@ export const getUserInformation = async (userId) => {
         method: 'GET'
     })
         .then(res => {
+            console.log(res)
             if(!res.ok) {
-                return res.json().then(err => {
-                    throw new Error(err)
-                })
+                throw res
             }
             return res.json()
         })

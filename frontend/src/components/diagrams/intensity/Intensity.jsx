@@ -22,7 +22,6 @@ function Intensity ({ userData }) {
     useEffect(() => {
         if (graphicRef.current) {
             setGraphicWidth(graphicRef.current.props.width)
-            console.log(graphicWidth)
         }
     }, [graphicRef.current])
 
