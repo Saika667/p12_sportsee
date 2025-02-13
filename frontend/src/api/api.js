@@ -3,7 +3,6 @@ export const getUserInformation = async (userId) => {
         method: 'GET'
     })
         .then(res => {
-            console.log(res)
             if(!res.ok) {
                 throw res
             }
